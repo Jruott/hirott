@@ -1,0 +1,249 @@
+/*blue皮肤*/
+body{
+    background:url(/images/bg_light_linen.png) repeat fixed #eee;
+    font-family: "Istok Web",Helvetica,Arial,sans-serif;
+    margin:0;
+    border:0;
+    outline:0;
+    font-size: 100%;  /*默认当前字体大小*/
+    
+}
+#change{
+    width:69px;
+    height:23px;
+    line-height: 23px;
+    background:#6FCFE0;
+    text-align: center;
+    margin-top: 0.5%;
+    font-size:12px;
+    margin-right:0.5%;
+    color:#fff;
+    font-family: "Istok Web",Helvetica,Arial,sans-serif;   
+    float: right;
+    cursor:pointer;
+}
+.bottom{
+    width:10px; 
+    height:10px;
+    float:right;
+    margin-top: 1%;
+}
+#black{
+    margin-right: 0.5%;
+    background: #333;
+}
+#blue{
+    margin-right: 13.5%;
+    background: #6FCFE0;
+}
+#wrapper{
+    margin:0 auto;
+    width:75%;    /*1010/1347*/
+    min-height: 100%;   /*为div高度自适应兼容各浏览器*/
+    height: auto !important;
+    height: 100%;
+}
+#top-bar{
+    width:100%;  /*因为它是fixed定位，所以不以上个div的宽度为标准*/
+    position:fixed;
+    z-index: 100;
+    top:0px;
+    background: #6FCFE0;
+    left:auto !important;
+    height: 40px;
+    line-height: 40px;
+    box-shadow: 4px 5px 10px #bbb;
+    border-radius:6px;
+    opacity: 0.8;
+}
+#topBar-title {
+    margin-left:14.5%;
+    float:left;
+}
+#topBar-title a{
+    color:#fff;
+    font-size: 20px;
+    font-weight: 900;
+    text-decoration: none;
+}
+/*left*/
+#main{
+    width:100%;
+    min-height: 100%;   /*为div高度自适应兼容各浏览器*/
+    height: auto !important;
+    height: 100%;
+    margin-top: 100px;
+}
+
+/*sidebar style*/
+#sidebar-wrap{
+    width:20.83334%;  /*200/960*/
+    margin-top: 0px;
+    float: left;
+    opacity: 0.8;
+}
+#sidebar{
+    width:100%;  
+    height:476px;
+    background: url(/images/postbg.png);
+    font: 11px/18px Helvetica, Arial, sans-serif;
+    color: #888;
+    border-radius:6px;
+    box-shadow: 4px 5px 17px rgba(0,0,0,0.2);
+}
+#sidebar #describe{
+    width:100%;   /*让图片响应式*/
+    height:37px;
+    line-height: 37px;
+    background: #6FCFE0;
+    color:#fff;
+    border-radius:6px;  
+    font:bold 15px "Play", Helvetica,sans-serif;
+    position: relative;
+}
+#sidebar #describe #describe-title{
+    position: absolute;
+    top:30%;
+    left:5%;
+}
+#widgetOne{
+    width:100%;
+    height:135px;
+    border-bottom:dotted 1px #bbb;
+}
+.widgettitle{
+    font-weight:bold;
+    font-size:14px;
+    font-family:'Play', arial, serif;
+    color:#555;
+    width:82.5%;
+    margin-left:11%
+}
+#widgetOne .textwidget{
+    width:82.5%;  /*165/200*/
+    margin-left:15%
+}
+#widgetTwo{
+    width:100%;
+    height:263px;
+}
+#widgetTwo #filcker{
+    width:100%;
+    height:100%;
+}
+#filcker #filcker-image{
+    float: right;
+    margin-right:1%;
+    width:96%;
+    height:76%;
+    border:3px solid #fff;
+}
+
+#filcker #filcker-image img{
+    max-width: 100%;
+    width:100%;
+    height:100%;  
+
+}
+#filcker a{
+    display: block;
+    text-decoration:none;
+    font: 11px/18px Helvetica, Arial, sans-serif;
+    color: #888;
+    margin-left: 5%;
+    margin-top: 85%;
+}
+.stickyStickyWrapper{
+    margin-top:20px;
+    width:100%;  
+    height:333px;
+    background: url(/images/postbg.png);
+    font: 11px/18px Helvetica, Arial, sans-serif;
+    color: #888;
+    border-radius:6px;
+    box-shadow: 4px 5px 17px rgba(0,0,0,0.2);
+}
+.stickyStickyWrapper-change{
+    position: fixed;
+    top:60px;
+    width:15%;  
+    height:333px;
+    border-radius:6px;
+    background: url(/images/postbg.png);
+    font: 11px/18px Helvetica, Arial, sans-serif;
+    color: #888;
+    opacity: 0.9;
+}
+#sticky{
+    width:100%;
+    height:39px;
+    background: #6FCFE0;
+    color:#fff;
+    font:bold 12px "Play", Helvetica,sans-serif;
+    position: relative;
+    border-radius:6px;
+}
+#sticky-title{
+    position: absolute;
+    top:30%;
+    left:5%;
+}
+#contact-box{
+    width:97%; /*165/*/
+    height:160px;
+    border:3px solid #fff;
+}
+#contact-box img{
+    max-width: 100%;
+    width:100%;
+    height:100%;  
+    border-radius: 3%;
+}
+#search{
+    max-width: 100%;
+    width:100%;
+    margin-top:13%;
+    height:39px;
+    margin-left:2%;
+    background: url(/images/sprite.png);
+    background-size: 100px;
+    background-position: 7px -100px;
+
+}
+.feed{
+    float: left;
+    border:3px solid #fff;
+    overflow: hidden;
+    width:18%;
+    height: 90%;
+    line-height: 36px;
+    color: #fff;
+    background-image: url(/images/sprite.png);
+    background-repeat:no-repeat;
+    background-size: 98px;
+    margin-left:2%;
+    border-radius: 30%;
+    opacity: 0.8
+
+}
+.feed-rss{
+    background-color: #f1b305;
+    background-position: -73px -69px;
+}
+.feed-weibo{
+    background-color: #FF5E52;
+    background-position: 7px -69px;
+}
+.feed-tqq{
+    background-color: #1FAEFF;
+    background-position: -33px -69px;
+}
+.feed-weixin{
+   background-color: #4BC916;
+    background-position: 7px -100px; 
+}
+
+/*切换主题按钮*/
+.bottom:hover{
+    cursor:pointer;
+}

@@ -1,0 +1,295 @@
+/*主页，主体内容*/
+/*right*/
+#content{
+    width:75%;  /*720/960*/
+    float:right;
+    height:auto !important;
+    margin-top: 0px;
+}
+.box{
+    width:100%;
+    /*min-height: 300px;*/
+   /* height:auto !important;
+    height:300px;*/
+}
+.shadow{
+    background: #fff;
+    width:83.61%;   /*602/720*/
+    min-height: 277px;
+   /* height:auto !important;
+    height:100%;*/
+    float: left;
+    border-top-left-radius:6px;
+    border-bottom-left-radius:6px;
+    border-bottom-right-radius:6px;
+    box-shadow: 0px 0px 10px #ddd;
+   
+}
+.bar{
+    width:16.25%; /*117/720*/
+    height:209px;   /*209/465*/
+    float: left;
+    background: url(/images/postbg.png);
+    font: 11px/13px Helvetica, Arial, sans-serif;
+    border-top-right-radius:6px;
+    border-bottom-right-radius:6px;
+    /*box-shadow: 4px 5px 10px #bbb;*/
+    box-shadow: 0px 0px 10px #ddd;
+    opacity: 0.8;
+}
+.shadow .entry-title{
+    width:89.7%;  /*540/602*/
+    /* height:34px;     34/465*/
+   
+    color:#292929;
+    font-family: 'Play', arial, serif;
+    margin-top:20px;
+    margin-left:20px;
+}
+.shadow .entry-title a{
+    font-weight: bold; 
+    font-size: 20px; 
+    text-decoration:none;
+    color:#292929;
+    font-family: serif;
+    transition:all 0.4s ease-out 0s;
+    -ms-transition:all 0.7s ease-out 0s;
+    -moz-transition:all 0.7s ease-out 0s;
+    -webkit-transition:all 0.7s ease-out 0s;
+}
+
+@-ms-keyframes swing{
+    from{-ms-transform: rotate(0deg);}
+    20%{-ms-transform:rotate(3deg);}
+    50%{-ms-transform:rotate(0deg);}
+    60%{-ms-transform:rotate(-3deg);}
+    to{-ms-transform:rotate(0deg);}
+}
+@-moz-keyframes swing{
+    from{-moz-transform: rotate(0deg);}
+    20%{-moz-transform:rotate(3deg);}
+    50%{-moz-transform:rotate(0deg);}
+    60%{-moz-transform:rotate(-3deg);}
+    to{-moz-transform:rotate(0deg);}
+}
+@-webkit-keyframes swing{
+    0%{-webkit-transform: rotate(0deg);}
+    20%{-webkit-transform:rotate(3deg);}
+    50%{-webkit-transform:rotate(0deg);}
+    60%{-webkit-transform:rotate(-3deg);}
+    100%{-webkit-transform:rotate(0deg);}
+}
+.shadow .entry-title a:hover{
+    color: #ED574B;
+    /*transform:translate(40px,0px);*/
+   /* transform:rotate(10deg);*/
+   animation:swing 0.2s infinite 0s ease-in;
+   -moz-animation:swing 0.2s infinite 0s ease-in;
+   -webkit-animation:swing 0.2s infinite 0s ease-in;
+    -ms-animation:swing 0.2s infinite 0s ease-in;
+   
+}
+.shadow .diag{
+    height: 6px;
+    width:89.7%;
+    background: url(/images/bg-diag.png) repeat-x;
+    margin-left:20px;
+    margin-top:15px;
+}
+
+.shadow .entry-img{
+    width:89.7%;
+    margin-left:20px;
+    margin-top:15px;
+}
+
+.shadow img{
+     max-width: 100%;
+     width:100%;
+}
+.shadow .entry-content{
+     margin-top:14px;
+     margin-bottom: 30px;
+     margin-left: 20px;
+     width:89.7%;
+     font-size:12px;
+     font-family: "Microsoft Yahei","Helvetica Neue",Helvetica,Arial,sans-serif;
+     text-indent:2em;
+     line-height: 24px;     
+} 
+.contentChange{
+
+}
+.blank{
+    width:100%;
+    height:85px;
+    clear:both;
+}
+
+/*bar*/
+.bar-frame{
+    width:76%;   /*90/117*/
+    height:86.12%;
+    /*border:1px solid black;*/
+    margin-top:15px;
+    margin-left:15px;
+}
+.date{
+    width:90px;
+    height:49px;
+    border-bottom:1px dotted #bbb;
+}
+.day{
+    font-size:34px;
+    line-height:48px;
+    color: #2e2e2e;
+    float: left;
+}
+.holder{
+    width:49px;
+    height: 40px;
+    float: right;
+    padding: 10px 0 0 
+}
+.month,.year{
+    color:#797979;
+    text-transform:uppercase;
+    font-size: 14px;
+}
+.barKind{
+    width:100%;
+    height: 40px;
+}
+.barKind p{
+    margin-top:0px;
+    color:#00a3cf;
+}
+.author{
+    margin-top:12px;
+}
+
+/*锚*/
+#mao{
+    display: none;
+    width: 47px;
+    min-height: 78px;
+    position: fixed;
+    bottom:150px;
+    right:47px;
+    background: url(/images/top.png) no-repeat;
+}
+#mao:hover{
+    background: url(/images/top.gif);
+    cursor:pointer;
+}
+
+/*page*/
+.clearfix:before,.clearfix:after{
+    content: "";
+    display: table;
+}
+.clearfix:after{
+    visibility: hidden;
+display: block;
+font-size: 0;
+content: " ";
+clear: both;
+height: 0;
+
+}
+.pager-item-list{
+    width:85%;
+    text-align: center;
+    border-top: 1px solid #00a3cf;
+    position: relative;
+}
+.pager-item-list:before{
+    content: "";
+    width:10px;
+    height:10px;
+    border-radius:5px;
+    background: #00a3cf;
+    position: absolute;
+    left:0px;
+    top:-5px;
+}
+.pager-item-list:after{
+    content: "";
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background: #00a3cf;
+    position: absolute;
+    right:0px;
+    top:-5px;
+}
+.pager-item-list .pager{
+    text-align: center;
+    display: inline-block;
+    margin-left: -5%;
+}
+.pager-item-list .pager li{
+    width:26px;
+    height:26px;
+    float:left;
+    line-height:26px;
+    list-style-type:none;
+    border:1px black solid;
+    border-radius:50%;
+    margin-left:5px;
+    margin-top:-3px;
+    font-size: 0.95em;
+    position:relative;
+    font:"Microsoft Yahei";
+    color:#00a3cf;
+    font-weight: bold;
+    border:2px #00a3cf solid;
+    transition:all 0.8s ease-out 0s;
+}
+.pager-item-list .pager li:hover{
+    cursor:pointer;
+}
+.pager-item-list .pager li:before{
+    content: "";
+    width:1px;
+    height: 15px;
+    position: absolute;
+    top:-15px;
+    left:50%;
+    background: #00a3cf;
+}
+.pager-item-list .pager li a{
+    text-decoration:none;
+    font-size: 0.95em;
+    color:#00a3cf;
+    font:"Microsoft Yahei";
+    display: block;
+    width:100%;
+    height:100%;
+}
+/*当前页，翻转180度*/
+.pager-item-list .pager .pager-current{
+    color:#fff;
+    font-weight: bold;
+    border:2px #fff solid;
+    background: #00a3cf;
+    font-size: 20px;
+    transform:rotateX(180deg);
+    transform-origin:0 -13px;
+    -ms-transform:rotateX(180deg);
+    -ms-transform-origin:0 -13px;
+    -moz-transform:rotateX(180deg);
+    -moz-transform-origin:0 -13px;
+    -webkit-transform:rotateX(180deg);
+    -webkit-transform-origin:0 -13px;
+}
+.pager-first,.pager-previous,.pager-next,.pager-last{
+    font-size: 1.5em;
+}
+
+.pager-item-list .pager .pager-item:hover{
+     transform:translate(13px,0px);
+     -ms-ransform:translate(13px,0px);
+     -moz-transform:translate(13px,0px);
+     -webkit-transform:translate(13px,0px);
+}

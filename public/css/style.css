@@ -1,0 +1,11 @@
+footer {
+    font-size: 12pt;
+    width: 100%;
+    text-align: center;
+}
+
+div.wrap {
+    width:800px;
+    margin-left: auto;
+    margin-right: auto;
+}
