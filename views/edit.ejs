@@ -1,0 +1,51 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link type="text/css" rel="stylesheet" href="/css/style.css"> 
+<title><%= title%></title>
+</head>
+<body>
+    <div class="wrap">
+        <div class="content">
+            <% if (article.status===0) { %>
+               <div>本文是一篇草稿，你要发表吗？ <a href="/api/article/public?id=<%= article.id %>">立马的</a></div>
+            <% } %>
+
+            <% if (article.status===1) { %>
+                本文章已发表 <a href="/api/article/remove?id=<%= article.id %>">删除本文章</a>
+            <% } %>
+            <div>
+                文章内容：
+                <textarea><%- article.content %></textarea>
+            </div>
+            <div>
+                附件列表：
+                当前第<%= attachment.current %>页
+                <% for(var i = 0; i < attachment.items.length; i++) { %>
+                    <li><a href="/upload/<%= attachment.items[i].link %>"><%= attachment.items[i].name %></a>
+                        <a href="/api/file/remove?id=<%= attachment.items[i].id %>">删除</a></li>
+                <% } %>
+            </div>
+            <div>
+                上传文件：
+                <form method="POST" action="/api/file/upload" enctype="multipart/form-data">
+                    <input type="file" name="f" />
+                    <input type="hidden" name="owner" value="<%= article.id %>" />
+                    <input type="submit" />
+                </form>
+            </div>
+            <footer>
+                <div class="footer-c">
+                    <div>
+                        Power by <a href="hirosama.cn">Hirosama.cn</a> 2014
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script type="text/javascript" src="/js/jquery-2.0.3.min.js"></script>
+</body>
+</html>

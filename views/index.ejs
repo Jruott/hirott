@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link id="skinDefault" type="text/css" rel="stylesheet" href="/css/black.css">
+<link type="text/css" rel="stylesheet" href="/css/blog.css">
+<script type="text/javascript" src="/js/jquery-2.0.3.min.js"></script>
+
+<title><%= title%></title>
+</head>
+<body>
+    <div id="top-bar">
+        <div id="topBar-title"><a href="http://localhost:8080/">Jruott的博客</a></div>
+        <div class="bottom" id="blue" onclick="changeCss('blue')"></div>
+        <div class="bottom" id="black" onclick="changeCss('black')"></div>
+        <div id="change">切换主题</div>
+    </div>
+    <div id="wrapper">
+         <div id="main">
+            <div id="sidebar-wrap">
+                <div id="sidebar">
+                    <div id="describe"><div id="describe-title"></div></div>
+                    <div id="widgetOne">
+                        <h2 class="widgettitle">About Me</h2>
+                        <div class="textwidget">I'm Dispatch, a blog-style WordPress theme with sweet sorting capabilities, custom widgets and a sticky sidebar.</div>
+                    </div>
+                    <div id="widgetTwo">
+                        <div id="filcker">
+                            <h2 class="widgettitle">Flickr</h2>
+                            <div id="filcker-image"><img src="/images/bck6.jpg"></div>
+                            <a href="http://huaban.com/">More Photos →</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="stickStick" class="stickyStickyWrapper">
+                    <div id="sticky"><div id="sticky-title">创意产品</div></div>
+                    <div id="contact-box"><img src="/images/lift.gif"></div>
+                    <div id="search">
+                        <a href="#" class="feed feed-rss"></a>
+                        <a href="#" class="feed feed-weibo"></a>
+                        <a href="#" class="feed feed-tqq"></a>
+                        <a href="#" class="feed feed-weixin"></a>
+
+                    </div>
+                </div>
+            </div>
+            <div id="content">
+                 <% for(var i = 0; i < list.items.length; i++) { %>
+                    <div class="box">
+                        <div class="shadow">
+                            <div class="entry-title"><a href="article?id=<%= list.items[i].id %>"><%= list.items[i].title%></a></div>
+                            <div class="diag"></div>
+                            <% if(list.items[i].preview != null){ %>
+                                <div class="entry-img"><img src="/upload/<%=list.items[i].preview %>"/></div>
+                            <% } %>
+                            <div class="entry-content">
+                                <%=list.items[i].description %>规定发给对方规定发给对方规定发给对方规定发给对方规定发给对方规定发给对方规定发给对方规定发给对方规定发给对方规定发给对方
+                            </div>
+                        </div>
+                        <div class="bar">
+                            <div class="bar-frame">
+                                <div class="date">
+                                    <%  var d = new Date(list.items[i].createtime) %>
+                                    <strong class="day"><%= d.getDate() %></strong>
+                                    <div class="holder">
+                                        <div class="month"><%= d.getMonth()+1%></div>
+                                        <div class="year"><%= d.getFullYear()%></div>
+                                    </div>
+                                </div>
+                                <div class="author barKind">
+                                    <strong class="title"><img src="/images/author.png"/></strong>
+                                    <P>MIKE</P>
+                                </div>
+                                <div class="category barKind">
+                                    <strong class="title"><img src="/images/kind.png"/></strong>
+                                    <P>Photography</P>
+                                </div>
+                                <div class="comments barKind">
+                                    <strong class="title"><img src="/images/comment.png"/></strong>
+                                    <p>1 Comment</p>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                      <div class="blank"></div>
+                 <% } %>
+                
+                 <div class="pager-item-list">
+                    <ul class="pager"></ul>
+                 </div>
+                
+
+            </div>
+         </div>
+    </div>
+
+    <!--锚-->
+    <div id="mao"></div>
+    
+<script type="text/javascript" src="/js/page.js"></script> 
+<script type="text/javascript">
+//加载分页器
+    var currentPage = <%= list.current%> + 1;
+    var totalPage = <%= list.total%>;
+    $.pageShow(currentPage,totalPage,".pager");
+
+//cookie切换主题
+    var skinCookieName = "myskin";  //只是个代名词，全程重要的是传的value，点击要换的按钮时就设置这个value，然后展示皮肤时查到该value，然后把css的后缀换成该value
+    setSkin();
+
+    //展示皮肤时就getCookie
+    function setSkin(){
+        var thisSkin = "black";
+        console.log(thisSkin+"***");
+        var cookieSkin = getCookie(skinCookieName);
+
+        if(cookieSkin !=""){
+            thisSkin = cookieSkin;
+        }
+        console.log(thisSkin+"***");
+        var reg = /\/\w{4,5}\./;
+        console.log(skinDefault.href);
+        console.log(skinDefault.href.replace(reg,"/" + thisSkin +"."));
+        skinDefault.href = skinDefault.href.replace(reg,"/" + thisSkin +".");
+    }
+
+    //点击要变化的按钮，就设置该cookie
+    function changeCss(value){
+        
+        if(value != ""){
+            var expdate = new Date();
+            expdate.setTime(expdate.getTime() + (1000*60*60*24*30));   //将过期时间转换为日期
+            SetCookie(skinCookieName,value,expdate);   //设置cookie
+            setSkin();  //变换界面
+        }
+    }    
+
+    function SetCookie(name,value,expdate){
+        //将名字、值、过期时间写进cookie中，escape() 函数可对字符串进行编码，这样就可以在所有的计算机上读取该字符串。
+    //??????有个问题，document.cookie都等于myskin=blog或者myskin=blue，后面这部分加不上去
+        document.cookie=name+ "=" + escape(value)  + ((expdate==null) ? "" : ";expires="+expdate.toGMTString());
+    }
+
+    function getCookie(name){
+        var search = name + "=";   //如： myskin=
+        var returnvalue = "";
+        if(document.cookie.length > 0){
+            offset = document.cookie.indexOf(search);   //查找cookie
+            if(offset != -1){   //存在
+                offset += search.length;
+                end = document.cookie.indexOf(";",offset); 
+                returnvalue = unescape(document.cookie.substring(offset));   //对刚才编码的字符串解码,document.cookie.substring(offset，end)，因为前面写进cookie是“;”以及后面的过期时间都没写进去，现只有“myskin=blue”
+            }
+        }
+        console.log(returnvalue +"###");
+        return returnvalue;
+    }
+
+
+</script>
+<script type="text/javascript" src="/js/blog.js"></script>
+  
+</body>
+</html>

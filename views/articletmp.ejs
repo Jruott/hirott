@@ -1,0 +1,20 @@
+                <div id="content-title">
+                    <div id="article-title">
+                        <%= article.title%>                    
+                    </div>
+                    <div id="article-meta">
+                        <%  var d = new Date(article.createtime); var time =d.getFullYear() + "." + (d.getMonth()+1) + "." + d.getDate() %>
+                        <div class="metaItem"><img src="/images/calendar.png"><span id="time"><%=time%></span></div>
+                        <div class="metaItem"><img src="/images/kind.png"><span ><%=time%></span></div>
+                        <div class="metaItem" id="metaItem3"><div id="metaItemdiv3"><img src="/images/browser.png"></div><span ><%= time %></span></div>
+                        <div class="metaItem" id="metaItem4"><div id="metaItemdiv4"><img src="/images/comment.png"></div><span ><%= time %></span></div>
+                    </div>
+                </div>
+
+                <div id="content-main"><%- article.content%> </div>
+
+                <div id="separate"></div>
+
+                <div id="write">
+                    <textarea></textarea>
+                </div>
