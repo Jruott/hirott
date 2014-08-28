@@ -172,14 +172,15 @@
 #mao{
     display: none;
     width: 47px;
-    min-height: 78px;
+    min-height: 47px;
     position: fixed;
-    bottom:150px;
+    bottom:100px;
     right:47px;
     background: url(/images/top.png) no-repeat;
 }
 #mao:hover{
-    background: url(/images/top.gif);
+    /*background: url(/images/top.gif);*/
+    /*box-shadow: 5px 5px 0 #fff;*/
     cursor:pointer;
 }
 
@@ -190,11 +191,11 @@
 }
 .clearfix:after{
     visibility: hidden;
-display: block;
-font-size: 0;
-content: " ";
-clear: both;
-height: 0;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
 
 }
 .pager-item-list{
