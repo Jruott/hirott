@@ -1,6 +1,6 @@
 $(function(){
 
-    $(window).scroll(function(){
+    /*$(window).scroll(function(){
         if($(window ).scrollTop()  > $(window).height()){
            $("#mao").show();
            $("#mao").click(function(){
@@ -17,9 +17,24 @@ $(function(){
            $("#mao").hide();
           // return false;
     
-        }
+        }*/
 
-        //固定第二个bar 和 锚
+        window.onscroll = function(){
+           var topScroll = document.documentElement.scrollTop || document.body.scrollTop;
+           var browserHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+           var mao = document.getElementById("mao");
+           console.log(browserHeight)
+           if(topScroll > 600){
+              mao.style.display = "block";
+              mao.onclick = function(){
+                $('body,html').animate({scrollTop:0},600);
+              }
+           }else{
+              mao.style.display = "none";
+           }
+        }
+        
+        //固定第二个bar
         if( $(window ).scrollTop() > 500){
             document.getElementById("stickStick").className = "stickyStickyWrapper-change";
         }else{
@@ -27,29 +42,12 @@ $(function(){
            
         }
 
-        
-    });
+        $(".shadow").mouseover(function(){
+            this.style.background = "#fafafa";
+        }).mouseout(function(){
+            this.style.background = "#fff";
+        });
 
-
-    $(".shadow").mouseover(function(){
-        this.style.background = "#fafafa";
-    }).mouseout(function(){
-        this.style.background = "#fff";
-    });
-
-    //点击改变整体颜色
-    $("#change").click(function(){
-         $("body").css("background","url(/images/bg_light_linen.png)");
-        $("#top-bar").css("background","#6FCFE0");
-        $("#describe").css("background","#6FCFE0");
-        $("#sticky").css("background","#6FCFE0");
-        $("#filcker-image").css("height","76%");
-        $("#filcker-image img").attr("src","images/back3.gif");
-        $("#contact-box img").attr("src","images/water.gif");
-        $(".day").css("color","#E75B63");
-        $(".barKind p").css("color","#E75B63");
-        $(".entry-title a").css("color","#E75B63");
-    });
-  
+    
 
 });
