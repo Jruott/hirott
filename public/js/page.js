@@ -15,7 +15,6 @@ $.extend({
         pagerHtml +=  "<li class='pager-previous'><a title='上一页' href='/?pageno=" + (currentPage-2) + "'>" + "‹" + "</a></li>";
     }
 
-
     if(totalPage <= 9){   //当页数不超过9时，不会有省略的页数li，页面上总是以9页为上限的
         for(var i = 1; i <= totalPage; i++){
             if(i == currentPage){
