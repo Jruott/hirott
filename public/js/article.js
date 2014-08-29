@@ -1,4 +1,5 @@
 $(function() {
+    //翻页效果
         var Page = (function() {
             var config = {
                 $bookBlock: $('#bb-bookblock'),
