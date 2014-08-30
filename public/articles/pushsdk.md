@@ -40,7 +40,7 @@ Add the following to your application's manifest:
 
 **Here are excerpts from a sample manifest that supports Push:**
 
-```xml
+xml
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.nightweaver.pushdemo"
@@ -78,7 +78,7 @@ Add the following to your application's manifest:
     </application>
 
 </manifest>
-```
+
 #### Step 4: Regist Push Application
 ---
 We should regist push application at frist.In the sample app this check is done in two places: 

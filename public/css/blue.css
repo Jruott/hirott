@@ -247,3 +247,12 @@ body{
 .bottom:hover{
     cursor:pointer;
 }
+@media screen and (max-width:960px){
+    #wrapper{
+        margin:0 auto;
+        width:86%;    /*1010/1347*/
+        min-height: 100%;   /*为div高度自适应兼容各浏览器*/
+        height: auto !important;
+        height: 100%;
+    }
+}

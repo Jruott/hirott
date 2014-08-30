@@ -135,7 +135,7 @@ body{
 #filcker #filcker-image{
     float: right;
     margin-right:1%;
-    width:96%;
+    width:94.5%;
     height:50%;
     border:3px solid #fff;
 }
@@ -247,4 +247,14 @@ body{
 /*切换主题按钮*/
 .bottom:hover{
     cursor:pointer;
+}
+
+@media screen and (max-width:960px){
+    #wrapper{
+        margin:0 auto;
+        width:86%;    /*1010/1347*/
+        min-height: 100%;   /*为div高度自适应兼容各浏览器*/
+        height: auto !important;
+        height: 100%;
+    }
 }

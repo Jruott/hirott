@@ -119,12 +119,14 @@ pre{
 /*锚*/
 #mao{
     display: none;
-    width: 47px;
+    width: 4.5%;
     min-height: 47px;
     position: fixed;
     bottom:100px;
-    right:47px;
-    background: url(/images/top.png) no-repeat;
+    right:1%;
+}
+#mao img{
+    max-width: 100%;
 }
 #mao:hover{
     /*background: url(/images/top.gif);*/
