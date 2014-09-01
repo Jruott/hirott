@@ -3,7 +3,7 @@
 参数：currentPage ：当前页
       totalPage ：总共页数
       pageUl ：外部总ul的id选择器：如-“.page”
-creatTime:2014-8-19
+creatTime:2014-8-9
 
 */
 $.extend({
