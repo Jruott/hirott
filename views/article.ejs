@@ -83,53 +83,38 @@
         
                         </div>
 
-                        <div class="bb-item" id="item1">                     
-                            <div id="content-title">
-                                <div id="article-title">
-                                    <%= article.title%>                    
+
+                        <%if(nextone!=null){%>
+                            <div class="bb-item" id="item1">
+                                <div id="content-title">
+                                    <div id="article-title">
+                                        <%= nextone.title%>                    
+                                    </div>
+                                    <div id="article-meta">
+                                        <%  var d = new Date(nextone.createtime); var time =d.getFullYear() + "." + (d.getMonth()+1) + "." + d.getDate() %>
+                                        <div class="metaItem"><img src="/images/calendar.png"><span id="time"><%=time%></span></div>
+                                        <div class="metaItem"><img src="/images/kind.png"><span ><%=time%></span></div>
+                                        <div class="metaItem" id="metaItem3"><div id="metaItemdiv3"><img src="/images/browser.png"></div><span ><%= time %></span></div>
+                                        <div class="metaItem" id="metaItem4"><div id="metaItemdiv4"><img src="/images/comment.png"></div><span ><%= time %></span></div>
+                                    </div>
                                 </div>
-                                <div id="article-meta">
-                                    <%var d = new Date(article.createtime); var time =d.getFullYear() + "." + (d.getMonth()+1) + "." + d.getDate() %>
-                                    <div class="metaItem"><img src="/images/calendar.png"><span id="time"><%=time%></span></div>
-                                    <div class="metaItem"><img src="/images/kind.png"><span ><%=time%></span></div>
-                                    <div class="metaItem" id="metaItem3"><div id="metaItemdiv3"><img src="/images/browser.png"></div><span ><%= time %></span></div>
-                                    <div class="metaItem" id="metaItem4"><div id="metaItemdiv4"><img src="/images/comment.png"></div><span ><%= time %></span></div>
-                                </div>
+
+                                <div id="content-main"><%- nextone.content%> </div>
+
+                                <div id="separate"></div>
+
+                                <div id="write">
+                                    <textarea></textarea>
+                                </div>   
                             </div>
+                        <%}%>
 
-                            <div id="content-main"><%- article.content%> </div>
 
-                            <div id="separate"></div>
-
-                            <div id="write">
-                                <textarea></textarea>
+                        <%if(nextone!=null && article.id-2>0){%>
+                            <div class="bb-item" id="item2">
                             </div>
-        
-                        </div>
-
-
-                        <div class="bb-item" id="item2">
-                            <div id="content-title">
-                                <div id="article-title">
-                                    <%= nextone.title%>                    
-                                </div>
-                                <div id="article-meta">
-                                    <%  var d = new Date(article.createtime); var time =d.getFullYear() + "." + (d.getMonth()+1) + "." + d.getDate() %>
-                                    <div class="metaItem"><img src="/images/calendar.png"><span id="time"><%=time%></span></div>
-                                    <div class="metaItem"><img src="/images/kind.png"><span ><%=time%></span></div>
-                                    <div class="metaItem" id="metaItem3"><div id="metaItemdiv3"><img src="/images/browser.png"></div><span ><%= time %></span></div>
-                                    <div class="metaItem" id="metaItem4"><div id="metaItemdiv4"><img src="/images/comment.png"></div><span ><%= time %></span></div>
-                                </div>
-                            </div>
-
-                            <div id="content-main"><%- article.content%> </div>
-
-                            <div id="separate"></div>
-
-                            <div id="write">
-                                <textarea></textarea>
-                            </div>   
-                        </div>
+                        <%}%>
+                        
                     </div>
                 
                     <nav>
@@ -154,6 +139,57 @@
     <!--翻书插件-->
     <script src="/js/jquerypp.custom.js"></script>
     <script src="/js/jquery.bookblock.js"></script>
+    
+    <script>
+  var count=0;
+
+        window.onload = function(){
+            //判断当前页的后两页又没有
+            var bbClids=document.getElementById("bb-bookblock").childNodes;    
+            for(var i=0; i < bbClids.length; i++){
+                if(bbClids[i].nodeType == 1){
+                    count++;
+                }
+            }
+
+            //添加第三页的内容
+            if(count == 3 && <%=article.id%>-2>0){ 
+                var pageId =  <%=article.id%>-2;
+                resAjax();
+            }
+            
+            var xmlhttp = null;
+            function resAjax(){
+                    var url = "/articleapi?id=" + pageId;
+                    if(window.XMLHttpRequest){
+                        //code for IE7 Firefox Mozilla etc.
+                        xmlhttp = new XMLHttpRequest();
+                    }
+                    
+                    else if(window.ActiveXObject){ 
+                        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                    }
+                    
+                    if(xmlhttp != null){
+                        onResponse();
+                        xmlhttp.open("GET",url,false);
+                        xmlhttp.send(null);
+                    }else{
+                        alert("Your browser does not support XMLHTTP");
+                    }
+                
+                
+            }
+
+            function onResponse(){
+                xmlhttp.onreadystatechange = function(){
+                    if(xmlhttp.readyState==4 && xmlhttp.status==200){
+                        document.getElementById("item2").innerHTML = xmlhttp.responseText;
+                    }
+                }
+            }
+        }
+    </script>
 <script type="text/javascript" src="/js/blog.js"></script>
 <script type="text/javascript" src="/js/article.js"></script>  
 <!-- 主题皮肤更改 -->
