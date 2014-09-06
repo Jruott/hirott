@@ -10,7 +10,7 @@
 }
 #content-title{
     width:100%;
-    height:100px;
+    height:60px;
 }
 #article-title{
     width:100%;
@@ -59,7 +59,6 @@
 #content-main{
     font:13px "Microsoft Yahei","Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #555555;
-    text-indent: 2em;
     margin:0 auto;
     width:95%;
 }
@@ -67,7 +66,7 @@
     max-width:86%;
     padding:5px;    
     border:1px solid #e6e6e6;
-    margin-left:20px;
+    margin-left:35px;
     transition:all 0.4s ease-out 0s;
 }
 #content-main img:hover{
@@ -114,6 +113,9 @@
 }
 pre{
     word-wrap:break-word;
+    background: #eee;
+    box-shadow: 1px 1px 5px #aaa;
+    padding:20px;
 }
 
 /*锚*/
@@ -132,4 +134,10 @@ pre{
     /*background: url(/images/top.gif);*/
     /*box-shadow: 5px 5px 0 #fff;*/
     cursor:pointer;
+}
+ul{
+    font-size: 14px;
+}
+h3{
+    font-size: 15px;
 }
