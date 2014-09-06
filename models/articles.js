@@ -28,6 +28,7 @@ module.exports.getNearArticleByIdAndTime = function(id, time, callback) {
         if (db) {
             sqlgen.findOne(db, 'articles', 'id<>' + id + ' and createtime>="' + dtformat.local(new Date(time)) + '"', function(lastone) {
                 sqlgen.findOne(db, 'articles', 'id<>' + id + ' and createtime<="' + dtformat.local(new Date(time)) + '" order by createtime desc', function(nextone) {
+                    nextone.content = markdown.toHTML(fs.readFileSync('public/articles/' + nextone.content, 'utf8'))
                     callback(lastone, nextone)
                 })
             })
