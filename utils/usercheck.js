@@ -1,5 +1,4 @@
 'use strict';
-
 var admins = require('../models/admins')
 
 module.exports = function(app) {
